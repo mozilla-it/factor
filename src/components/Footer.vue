@@ -1,11 +1,11 @@
 <template>
   <footer class="f-footer">
-    <section class="f-footer__links">
+    <section class="f-footer__links link-list">
       <a
         v-for="(single, index) in links"
         v-bind:key="index"
         v-bind:href="single.link"
-        class="f-footer__link"
+        class="link-list__item"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -54,43 +54,47 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .f-footer {
   margin-top: 2em;
+
+  .f-footer__links {
+    background-color: var(--black);
+    color: var(--white);
+    text-align: center;
+    padding: 2em 0;
+  }
 }
-.f-footer__links {
-  background-color: var(--black);
-  color: var(--white);
-  text-align: center;
-  padding: 2em 0;
-}
-.f-footer__link {
-  color: var(--gray-40);
-  text-decoration: none;
-  display: inline-block;
-  vertical-align: middle;
-  padding: 0.9em 1.5em;
-  margin: 1em 0.5em;
-  border-radius: 2em;
-  line-height: 1;
-}
-.f-footer__link:hover {
-  color: inherit;
-}
-.focus-styles .f-footer__link:focus {
-  box-shadow: 0px 0 0 1px var(--white), 0 0 0 3px var(--transparentWhite);
-}
-.f-footer__link svg {
-  margin-right: 0.75em;
-  display: inline-block;
-  vertical-align: middle;
-  background: var(--gray-40);
-  border-radius: 100%;
-  color: var(--black);
-  padding: 0.25em;
-  box-sizing: content-box;
-}
-.f-footer__link:hover svg {
-  background-color: var(--white);
+
+.link-list {
+  .link-list__item {
+    color: var(--gray-40);
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0.9em 1.5em;
+    margin: 1em 0.5em;
+    border-radius: 2em;
+    line-height: 1;
+
+    svg {
+      margin-right: 0.75em;
+      display: inline-block;
+      vertical-align: middle;
+      background: var(--gray-40);
+      border-radius: 100%;
+      color: var(--black);
+      padding: 0.25em;
+      box-sizing: content-box;
+    }
+
+    &:hover {
+      color: inherit;
+
+      svg {
+        background-color: var(--white);
+      }
+    }
+  }
 }
 </style>

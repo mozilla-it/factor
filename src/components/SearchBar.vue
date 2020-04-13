@@ -71,98 +71,106 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .search-bar {
   margin-right: auto;
   width: 100%;
   max-width: 31em;
-}
-.search-bar fieldset {
-  border: 0;
-  padding: 0;
-}
-.search-bar__fields {
-  display: flex;
-  flex-direction: row;
-  position: relative;
-}
-.search-bar__fields:focus .search-bar__input,
-.search-bar__fields:hover .search-bar__input {
-  border: 1px solid var(--blue-60);
-}
-.search-bar__fields:focus button[type='submit'],
-.search-bar__fields:hover button[type='submit'] {
-  border-right: 1px solid var(--blue-60);
-}
-.search-bar__fields input,
-.search-bar__fields button[type='submit'] {
-  font-size: 1.15em;
-}
-.search-bar__input {
-  border: 1px solid var(--gray-30);
-  width: 100%;
-  background-color: var(--white);
-  -webkit-appearance: none;
-  appearance: none;
-  border-radius: 0;
-  padding: 0.5em 1.75em 0.5em 3em;
-}
-.search-bar__input::placeholder {
-  text-align: center;
-}
-
-.search-bar__submit {
-  border: 0;
-  border-right: 1px solid var(--gray-30);
-  appearance: none;
-  background-color: var(--white);
-  width: 2.5em;
-  padding: 0.5em;
-  margin-right: -1px;
-  position: absolute;
-  left: 1px;
-  top: 1px;
-  bottom: 1px;
-  transition: background-color 0.2s ease-in-out;
-}
-.search-bar__submit:hover {
-  background-color: var(--gray-20);
-}
-.search-bar__submit img {
-  vertical-align: middle;
-  width: 1.15em;
-}
-.search-bar__clear-button {
-  background-color: var(--white);
-  position: absolute;
-  border: 0;
-  top: 3px;
-  right: 1px;
-  bottom: 1px;
-  width: 2em;
-  padding: 0;
-  line-height: 1;
-}
-
-@media (min-width: 57.5em) {
-  .search-bar__clear-button {
-    width: 3em;
+  fieldset {
+    border: 0;
+    padding: 0;
   }
-}
-.search-bar__clear-button:hover {
-  color: var(--blue-60);
-}
 
-.search-bar--small {
-  padding: 1em;
-  max-width: none;
-  background: var(--white);
-  margin-bottom: 1em;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 5em;
-  z-index: var(--layerTopBar);
-  box-shadow: var(--shadowCard);
+  & #{&}__fields {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+
+    &:focus .search-bar__input,
+    &:hover .search-bar__input {
+      border: 1px solid var(--blue-60);
+    }
+
+    &:focus button[type='submit'],
+    &:hover button[type='submit'] {
+      border-right: 1px solid var(--blue-60);
+    }
+
+    input,
+    button[type='submit'] {
+      font-size: 1.15em;
+    }
+  }
+
+  & #{&}__input {
+    border: 1px solid var(--gray-30);
+    width: 100%;
+    background-color: var(--white);
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    padding: 0.5em 1.75em 0.5em 3em;
+
+    &::placeholder {
+      text-align: center;
+    }
+  }
+
+  & #{&}__submit {
+    border: 0;
+    border-right: 1px solid var(--gray-30);
+    appearance: none;
+    background-color: var(--white);
+    width: 2.5em;
+    padding: 0.5em;
+    margin-right: -1px;
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    bottom: 1px;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+      background-color: var(--gray-20);
+    }
+
+    img {
+      vertical-align: middle;
+      width: 1.15em;
+    }
+  }
+
+  & #{&}__clear-button {
+    background-color: var(--white);
+    position: absolute;
+    border: 0;
+    top: 3px;
+    right: 1px;
+    bottom: 1px;
+    width: 2em;
+    padding: 0;
+    line-height: 1;
+
+    &:hover {
+      color: var(--blue-60);
+    }
+
+    @media (min-width: 57.5em) {
+      width: 3em;
+    }
+  }
+
+  &--small {
+    padding: 1em;
+    max-width: none;
+    background: var(--white);
+    margin-bottom: 1em;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 5em;
+    z-index: var(--layerTopBar);
+    box-shadow: var(--shadowCard);
+  }
 }
 </style>
