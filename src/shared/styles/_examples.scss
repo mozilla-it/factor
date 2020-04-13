@@ -1,0 +1,14 @@
+.f-profile {
+  margin: 1em;
+  height: calc(100% - 2em);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  flex: 0.2;
+
+  & #{&}__image {
+    display: block;
+    height: 100%;
+    max-width: 100%;
+  }
+}
