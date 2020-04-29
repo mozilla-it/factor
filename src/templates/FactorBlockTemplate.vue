@@ -2,9 +2,7 @@
   <div id="factor-template" class="f-template-outer">
     <Header :nav-list="['on', 'two', 'three']"></Header>
     <main class="f-main">
-      <h1 class="f-main__title">Hello World</h1>
-      <!-- Grid of components -->
-      <Panel title="Test panel"><p>hello world</p></Panel>
+      <slot name="main"></slot>
     </main>
     <Footer></Footer>
   </div>
@@ -12,14 +10,12 @@
 <script>
 import Header from '@/components/Header.vue';
 import Footer from '@/components/Footer.vue';
-import Panel from '@/components/Panel.vue';
 
 export default {
   name: 'FactorBlockTemplate',
   components: {
     Header,
     Footer,
-    Panel,
   },
 };
 </script>

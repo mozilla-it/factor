@@ -1,7 +1,9 @@
 <template>
   <header class="f-header">
     <div class="f-header__column">
-      <img src="../assets/mozilla-logo.png" class="f-header__logo" />
+      <a class="f-header__logo-link" href="/">
+        <img src="../assets/mozilla-logo.png" class="f-header__logo" />
+      </a>
     </div>
     <div class="f-header__column">
       <SearchBar class="f-header__search" />
@@ -46,6 +48,9 @@ export default {
   border-bottom: 1px solid var(--gray-30);
 
   & #{&}__column {
+    &:first-child {
+      display: flex;
+    }
     &:nth-child(2) {
       display: flex;
       flex-direction: row;
@@ -60,10 +65,17 @@ export default {
     }
   }
 
+  & #{&}__logo-link {
+    margin: 1em auto 1em 1em;
+    padding: 0;
+    max-width: none;
+    border-radius: 0;
+    max-width: 150px;
+  }
+
   & #{&}__logo {
     display: block;
-    height: calc(100% - 2em);
-    margin: 1em;
+    height: 100%;
     max-width: 100%;
   }
 }

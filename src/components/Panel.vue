@@ -40,31 +40,16 @@ export default {
   border: 4px solid var(--gray-50);
   background: var(--white);
   margin: 0 0 2em;
-  grid-column: 2 / -1;
   overflow: visible;
   border-radius: var(--cardRadius);
   position: relative;
 }
 
-.panel.first {
-  padding: 0;
-}
-
-.panel.first .panel__header {
-  margin: 0 0 1.5em 0;
-}
 @supports (--key: value) {
   .panel {
     border: none;
     box-shadow: var(--shadowCard);
   }
-}
-.panel:first-child {
-  grid-column: 1 / -1;
-}
-
-.panel .reporting-structure h3 {
-  margin-top: 0;
 }
 
 .panel__header {

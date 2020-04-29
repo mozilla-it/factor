@@ -73,9 +73,9 @@ export default {
 
 <style lang="scss">
 .search-bar {
-  margin-right: auto;
   width: 100%;
   max-width: 31em;
+
   fieldset {
     border: 0;
     padding: 0;

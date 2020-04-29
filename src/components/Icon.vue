@@ -9,17 +9,8 @@
     class="icon"
     @click="handleIconClicked"
   >
-    <template v-if="id === 'self-avatar'">
-      <image
-        v-if="avatarUrl"
-        :href="avatarUrl"
-        x="0"
-        y="0"
-        width="24"
-        height="24"
-      />
-    </template>
-    <template v-else>
+    <template>
+      <!-- <component :is="iconPath" /> -->
       <use
         :href="
           '#' +
@@ -49,6 +40,19 @@ export default {
     width: Number,
     height: Number,
     id: String,
+  },
+  computed: {
+    iconPath() {
+      console.log('found: ', require(`@/assets/svg/${this.id}.svg`));
+      return () => import(`@/assets/svg/${this.id}.svg`);
+    },
+    iconLoader() {
+      console.log(
+        'loading svg: ',
+        `svg-inline-loader?classPrefix=f-i__!@/assets/svg/${this.id}.svg`,
+      );
+      return require(`svg-inline-loader?classPrefix=f-i__!@/assets/svg/${this.id}.svg`);
+    },
   },
   methods: {
     handleIconClicked(e) {

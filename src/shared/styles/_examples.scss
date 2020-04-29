@@ -1,3 +1,8 @@
+/**
+ * Styles for examples
+ */
+
+@import './grid-block';
 .f-profile {
   margin: 1em;
   height: calc(100% - 2em);
@@ -11,4 +16,26 @@
     height: 100%;
     max-width: 100%;
   }
+}
+
+.test-panel-third {
+  @include thirdGridWidth(1);
+}
+.test-panel-third-2 {
+  @include thirdGridWidth(3);
+}
+
+.test-panel-third-3 {
+  @include thirdGridWidth(5);
+}
+
+.test-panel-half {
+  @include halfGridWidth(1);
+}
+.test-panel-half-2 {
+  @include halfGridWidth(4);
+}
+
+.test-panel-full {
+  @include fullGridWidth();
 }

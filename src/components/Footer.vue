@@ -10,7 +10,7 @@
         rel="noopener noreferrer"
       >
         <Icon v-bind:id="single.icon" :width="12" :height="12" />
-        <abbr v-if="single.abbr" v-bind:title="single.abbr">{{
+        <abbr class="link-text" v-if="single.abbr" v-bind:title="single.abbr">{{
           single.label
         }}</abbr>
         {{ !single.abbr ? single.label : '' }}
@@ -86,6 +86,10 @@ export default {
       color: var(--black);
       padding: 0.25em;
       box-sizing: content-box;
+    }
+
+    > .link-text {
+      text-decoration: none;
     }
 
     &:hover {
