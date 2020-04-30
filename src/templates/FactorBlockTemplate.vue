@@ -1,10 +1,24 @@
 <template>
   <div id="factor-template" class="f-template-outer">
-    <Header :nav-list="['on', 'two', 'three']"></Header>
+    <Header
+      :searchBarHandler="searchBarHandler"
+      :searchBarLabel="searchBarLabel"
+    >
+      <template slot="nav">
+        <slot name="nav" />
+      </template>
+      <template slot="profile">
+        <slot name="profile" />
+      </template>
+    </Header>
     <main class="f-main">
       <slot name="main"></slot>
     </main>
-    <Footer></Footer>
+    <Footer>
+      <template slot="links">
+        <slot name="footer-links" />
+      </template>
+    </Footer>
   </div>
 </template>
 <script>
@@ -16,6 +30,16 @@ export default {
   components: {
     Header,
     Footer,
+  },
+  props: {
+    searchBarHandler: {
+      type: Function,
+      default: () => {},
+    },
+    searchBarLabel: {
+      type: String,
+      default: '',
+    },
   },
 };
 </script>

@@ -1,56 +1,43 @@
 <template>
-  <FactorBlockTemplate>
-    <div class="b-l" slot="main">
-      <Panel
-        class="test-panel-third"
-        title="Test panel"
-        :full-on-mobile="true"
-      ></Panel>
-      <Panel
-        class="test-panel-third-2"
-        title="Test panel"
-        :full-on-mobile="true"
-      ></Panel>
-      <Panel
-        class="test-panel-third-3"
-        title="Test panel"
-        :full-on-mobile="true"
-      ></Panel>
-      <Panel
-        class="test-panel-half"
-        title="Test panel"
-        :full-on-mobile="true"
-      ></Panel>
-      <Panel
-        class="test-panel-half-2"
-        title="Test panel"
-        :full-on-mobile="true"
-      ></Panel>
-      <Panel
-        class="test-panel-full"
-        title="Test panel"
-        :full-on-mobile="true"
-      ></Panel>
-    </div>
+  <FactorBlockTemplate
+    :searchBarHandler="searchBarHandler"
+    searchBarLabel="Welcome to Factor"
+  >
+    <NavExample slot="nav" />
+    <ProfileExample slot="profile" />
+    <BlockLayoutExample slot="main" />
+    <FooterLinksExample slot="footer-links" />
   </FactorBlockTemplate>
 </template>
 
 <script>
 import FactorBlockTemplate from './templates/FactorBlockTemplate.vue';
-import Panel from '@/components/Panel.vue';
+
+// Importing example components
+import NavExample from '@/examples/NavExample.vue';
+import ProfileExample from '@/examples/ProfileExample.vue';
+import BlockLayoutExample from '@/examples/BlockLayoutExample.vue';
+import FooterLinksExample from '@/examples/FooterLinksExample.vue';
 
 export default {
   name: 'App',
   components: {
     FactorBlockTemplate,
-    Panel,
+    // Example components
+    NavExample,
+    ProfileExample,
+    BlockLayoutExample,
+    FooterLinksExample,
+  },
+  methods: {
+    searchBarHandler(value) {
+      console.log('Search bar value: ', value);
+    },
   },
 };
 </script>
 
 <style lang="scss">
-@import './shared/styles/grid-block';
-
 :root {
   --gray-10: #f9f9fa;
   --gray-20: #ededf0;

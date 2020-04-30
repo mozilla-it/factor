@@ -1,23 +1,25 @@
 <template>
   <header class="f-header">
     <div class="f-header__column">
-      <a class="f-header__logo-link" href="/">
+      <slot name="logo" />
+      <a class="f-header__logo-link" href="/" v-if="!hasLogoSlot">
         <img src="../assets/mozilla-logo.png" class="f-header__logo" />
       </a>
     </div>
     <div class="f-header__column">
-      <SearchBar class="f-header__search" />
+      <SearchBar
+        class="f-header__search"
+        :searchBarHandler="searchBarHandler"
+        :searchBarLabel="searchBarLabel"
+        v-if="!hideSearchBar"
+      />
     </div>
     <div class="f-header__column">
       <nav class="f-nav">
-        <ul class="f-nav__items nav-list">
-          <li class="nav-list__item" v-for="(item, idx) in navList" :key="idx">
-            {{ item }}
-          </li>
-        </ul>
+        <slot name="nav" />
       </nav>
       <div class="f-profile">
-        <img src="../assets/default-profile.png" class="f-profile__image" />
+        <slot name="profile" />
       </div>
     </div>
   </header>
@@ -29,16 +31,27 @@ export default {
   name: 'Header',
   components: { SearchBar },
   props: {
-    navList: {
-      type: Array,
-      default: () => [],
+    hideSearchBar: {
+      type: Boolean,
+      default: false,
+    },
+    searchBarHandler: {
+      type: Function,
+      default: () => {},
+    },
+    searchBarLabel: {
+      type: String,
+      default: '',
+    },
+  },
+  computed: {
+    hasLogoSlot() {
+      return !!this.$slots['logo'];
     },
   },
 };
 </script>
 <style lang="scss">
-@import '../shared/styles/examples';
-
 .f-header {
   width: 100%;
   display: grid;
@@ -84,14 +97,8 @@ export default {
   flex: 1;
 }
 
-.nav-list {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-
-  & #{&}__item {
-    margin: 0 1em;
-  }
+.f-profile {
+  height: 100%;
+  flex: 0.2;
 }
 </style>

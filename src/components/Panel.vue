@@ -1,7 +1,7 @@
 <template>
   <article :class="{ panel: true, 'full-on-mobile': fullOnMobile }">
     <slot name="meta"></slot>
-    <header class="panel__header" v-if="!hideContent">
+    <header class="panel__header" v-if="!hideContent && hasTitle">
       <h2>{{ title }}</h2>
       <slot name="header"></slot>
     </header>
@@ -26,16 +26,24 @@ export default {
       type: Boolean,
       default: false,
     },
-    title: String,
+    title: {
+      type: String,
+      default: '',
+    },
     hideContent: {
       type: Boolean,
       default: false,
     },
   },
+  computed: {
+    hasTitle() {
+      return this.title !== '';
+    },
+  },
 };
 </script>
 
-<style>
+<style lang="scss">
 .panel {
   border: 4px solid var(--gray-50);
   background: var(--white);
@@ -43,45 +51,43 @@ export default {
   overflow: visible;
   border-radius: var(--cardRadius);
   position: relative;
-}
 
-@supports (--key: value) {
-  .panel {
+  @supports (--key: value) {
     border: none;
     box-shadow: var(--shadowCard);
   }
-}
 
-.panel__header {
-  padding: 1.5em;
-  border-bottom: 1px solid var(--gray-30);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
+  &.full-on-mobile .panel__content {
+    padding: 0;
 
-.panel__content:not(.full) {
-  padding: 1.5em;
-}
-
-.panelfull-on-mobile .panel__content {
-  padding: 0;
-}
-@media (min-width: 35em) {
-  .panel.full-on-mobile .panel__content:not(.full) {
-    padding: 1.5em;
+    &:not(.full) {
+      @media (min-width: 35em) {
+        padding: 1.5em;
+      }
+    }
   }
-}
 
-.panel__header h2 {
-  margin: 0;
-  width: 100%;
-}
-@media (min-width: 35em) {
-  .panel__header h2 {
-    margin: 0;
-    width: auto;
+  & #{&}__header {
+    padding: 1.5em;
+    border-bottom: 1px solid var(--gray-30);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    h2 {
+      margin: 0;
+      width: 100%;
+
+      @media (min-width: 35em) {
+        margin: 0;
+        width: auto;
+      }
+    }
+  }
+
+  & #{&}__content:not(.full) {
+    padding: 1.5em;
   }
 }
 </style>

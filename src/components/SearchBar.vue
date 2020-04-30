@@ -4,7 +4,6 @@
       <legend class="visually-hidden">search</legend>
       <div class="search-bar__fields">
         <label for="search-query" class="visually-hidden">search-input</label>
-        <!-- TODO: fix placeholder fluent. search 'searchFormLabel' and replace with fluent in all code -->
         <input
           type="text"
           id="search-query"
@@ -12,7 +11,7 @@
           v-model="searchQuery"
           class="search-bar__input"
           ref="searchQueryField"
-          :placeholder="searchFormLabel"
+          :placeholder="searchBarLabel"
         />
         <button
           type="button"
@@ -38,8 +37,11 @@ import Icon from '@/components/Icon.vue';
 export default {
   name: 'SearchBar',
   props: {
-    searchFormLabel: String,
-    searchFormHandler: Function,
+    searchBarHandler: Function,
+    searchBarLabel: {
+      type: String,
+      default: '',
+    },
   },
   components: {
     Icon,
@@ -52,7 +54,7 @@ export default {
       } else {
         this.$emit('close-search-bar');
       }
-      this.searchFormHandler(this.searchQuery);
+      this.searchBarHandler(this.searchQuery);
     },
     clearQuery() {
       this.searchQuery = '';

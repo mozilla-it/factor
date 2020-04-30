@@ -31,4 +31,8 @@
 // Block layout
 .b-l {
   @include gridContainer;
+
+  & #{&}__panel--full {
+    @include fullGridWidth;
+  }
 }

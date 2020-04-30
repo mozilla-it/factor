@@ -1,104 +1,22 @@
 <template>
   <footer class="f-footer">
-    <section class="f-footer__links link-list">
-      <a
-        v-for="(single, index) in links"
-        v-bind:key="index"
-        v-bind:href="single.link"
-        class="link-list__item"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Icon v-bind:id="single.icon" :width="12" :height="12" />
-        <abbr class="link-text" v-if="single.abbr" v-bind:title="single.abbr">{{
-          single.label
-        }}</abbr>
-        {{ !single.abbr ? single.label : '' }}
-      </a>
-    </section>
+    <slot name="links" />
+    <!-- Eventually we will need a space for extra content here -->
   </footer>
 </template>
 
 <script>
-import Icon from '@/components/Icon.vue';
-
 export default {
   name: 'Footer',
-  components: {
-    Icon,
-  },
-  computed: {
-    links() {
-      return [
-        {
-          link: '/#test',
-          icon: 'cpg',
-          label: 'Test link',
-          abbr: 'test-link',
-        },
-        {
-          link: '/#test2',
-          icon: 'faq',
-          label: 'Test link 2',
-          abbr: 'test-link-2',
-        },
-        {
-          link: '/#test3',
-          icon: 'github',
-          label: 'Test link 3',
-          abbr: 'test-link-3',
-        },
-      ];
-    },
-  },
 };
 </script>
 
 <style lang="scss">
 .f-footer {
   margin-top: 2em;
-
-  .f-footer__links {
-    background-color: var(--black);
-    color: var(--white);
-    text-align: center;
-    padding: 2em 0;
-  }
-}
-
-.link-list {
-  .link-list__item {
-    color: var(--gray-40);
-    text-decoration: none;
-    display: inline-block;
-    vertical-align: middle;
-    padding: 0.9em 1.5em;
-    margin: 1em 0.5em;
-    border-radius: 2em;
-    line-height: 1;
-
-    svg {
-      margin-right: 0.75em;
-      display: inline-block;
-      vertical-align: middle;
-      background: var(--gray-40);
-      border-radius: 100%;
-      color: var(--black);
-      padding: 0.25em;
-      box-sizing: content-box;
-    }
-
-    > .link-text {
-      text-decoration: none;
-    }
-
-    &:hover {
-      color: inherit;
-
-      svg {
-        background-color: var(--white);
-      }
-    }
-  }
+  background-color: var(--black);
+  color: var(--white);
+  text-align: center;
+  padding: 2em 0;
 }
 </style>
