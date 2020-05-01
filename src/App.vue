@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import FactorBlockTemplate from './templates/FactorBlockTemplate.vue';
+import FactorBlockTemplate from './templates/FactorBlockTemplate';
 
 // Importing example components
 import NavExample from '@/examples/NavExample.vue';

@@ -1,0 +1,18 @@
+<div id="factor-template" class="f-template-outer">
+  <header :searchBarHandler="searchBarHandler" :searchBarLabel="searchBarLabel">
+    <template slot="nav">
+      <slot name="nav" />
+    </template>
+    <template slot="profile">
+      <slot name="profile" />
+    </template>
+  </header>
+  <main class="f-main">
+    <slot name="main"></slot>
+  </main>
+  <footer>
+    <template slot="links">
+      <slot name="footer-links" />
+    </template>
+  </footer>
+</div>
