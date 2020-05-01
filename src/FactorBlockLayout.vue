@@ -20,7 +20,7 @@ import BlockLayoutExample from '@/examples/BlockLayoutExample.vue';
 import FooterLinksExample from '@/examples/FooterLinksExample.vue';
 
 export default {
-  name: 'App',
+  name: 'FactorBlockLayout',
   components: {
     FactorBlockTemplate,
     // Example components

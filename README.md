@@ -1,29 +1,11 @@
 # factor
 
-## Project setup
-```
-npm install
-```
+## Project description
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+This will be a central repository for internally shared templates and components within Mozilla. This README will be the central location for all documentation relating to our internal components.
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Project tracking
 
-### Run your unit tests
-```
-npm run test:unit
-```
+Current epic: [SE-641](https://jira.mozilla.com/browse/SE-641)
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Deployment plan: [SE-707](https://jira.mozilla.com/browse/SE-707)
