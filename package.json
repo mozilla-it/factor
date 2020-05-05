@@ -1,6 +1,6 @@
 {
   "name": "@mozilla-factor/core",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Templates and components to guide internal applications designs to Mozilla",
   "author": {
     "name": "Andrew Sunada",
