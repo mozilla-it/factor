@@ -1,8 +1,7 @@
 {
-  "name": "factor",
-  "version": "1.0.13",
-  "private": true,
-  "description": "",
+  "name": "@mozilla-factor/core",
+  "version": "0.0.13",
+  "description": "Templates and components to guide internal applications designs to Mozilla",
   "author": {
     "name": "Andrew Sunada",
     "email": "batman@mozilla.com"
@@ -51,9 +50,16 @@
   },
   "homepage": "https://github.com/mozilla-it/factor#readme",
   "keywords": [
-    "factor"
+    "factor",
+    "ui-design",
+    "components",
+    "templates",
+    "mozilla",
+    "design-system",
+    "js",
+    "css"
   ],
-  "license": "ISC",
+  "license": "MPL-2.0",
   "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",

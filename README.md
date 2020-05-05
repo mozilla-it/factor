@@ -9,3 +9,9 @@ This will be a central repository for internally shared templates and components
 Current epic: [SE-641](https://jira.mozilla.com/browse/SE-641)
 
 Deployment plan: [SE-707](https://jira.mozilla.com/browse/SE-707)
+
+## Installation
+
+```
+npm install --save @mozilla-factor/core
+```
