@@ -3,7 +3,10 @@
     <div class="f-header__column">
       <slot name="logo" />
       <a class="f-header__logo-link" href="/" v-if="!hasLogoSlot">
-        <img src="../assets/mozilla-logo.png" class="f-header__logo" />
+        <img
+          src="https://www.mozilla.org/media/protocol/img/logos/mozilla/black.svg"
+          class="f-header__logo"
+        />
       </a>
     </div>
     <div class="f-header__column">
@@ -81,15 +84,13 @@ export default {
   & #{&}__logo-link {
     margin: 1em auto 1em 1em;
     padding: 0;
-    max-width: none;
     border-radius: 0;
-    max-width: 150px;
   }
 
   & #{&}__logo {
     display: block;
     height: 100%;
-    max-width: 100%;
+    width: auto;
   }
 }
 

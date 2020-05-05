@@ -25,6 +25,15 @@ module.exports = {
     // },
   },
   configureWebpack: {
+    resolve: {
+      extensions: ['.js', '.vue', '.json'],
+      alias: {
+        // {{#if_eq build "standalone"}}
+        // 'vue$': 'vue/dist/vue.esm.js',
+        // {{/if_eq}}
+        '@': path.resolve(__dirname, 'src'),
+      },
+    },
     module: {
       rules: [
         // {
