@@ -17,4 +17,9 @@ export default {
       default: '',
     },
   },
+  computed: {
+    hasLogo() {
+      return !!this.$slots['logo'];
+    },
+  },
 };

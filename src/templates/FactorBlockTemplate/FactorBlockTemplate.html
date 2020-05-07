@@ -3,6 +3,9 @@
     :searchBarHandler="searchBarHandler"
     :searchBarLabel="searchBarLabel"
   >
+    <template slot="logo" v-if="hasLogo">
+      <slot name="logo" />
+    </template>
     <template slot="nav">
       <slot name="nav" />
     </template>
