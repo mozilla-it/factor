@@ -1,4 +1,4 @@
-# factor
+<h1 align="center">Factor</h1>
 
 ## Project description
 
